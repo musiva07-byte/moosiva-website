@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+/*
+ * Moosiva Lux Wear brand tokens.
+ * Variable names match context/ui-context.md exactly.
+ */
+:root {
+  --bg-base: #fbf7f5;
+  --bg-soft: #f3e7e5;
+  --bg-surface: #ffffff;
+  --bg-surface-soft: #f8f1ef;
+
+  --text-primary: #2e2325;
+  --text-muted: #746267;
+  --text-rose-deep: #5a353b;
+
+  --accent-primary: #9b5f68;
+  --accent-primary-hover: #854e58;
+  --accent-soft: #e7d2d5;
+  --accent-champagne: #c79a87;
+  --accent-rose-gold: #b77c70;
+
+  --border-default: #e7d8d5;
+  --border-input: #d8c4c1;
+
+  --state-error: #a34d52;
+  --state-success: #4f7a63;
+  --state-warning: #a8753a;
+  --state-info: #6d758e;
+
+  --radius: 0.9rem;
+
+  /* Suggested shadcn-style variables (context/ui-context.md), reserved for
+     future shadcn/ui component installs. Not wired into @theme yet. */
+  --background: 20 38% 97%;
+  --foreground: 348 14% 16%;
+  --card: 0 0% 100%;
+  --card-foreground: 348 14% 16%;
+  --primary: 350 24% 49%;
+  --primary-foreground: 20 40% 98%;
+  --secondary: 10 30% 93%;
+  --secondary-foreground: 348 22% 30%;
+  --muted: 10 24% 94%;
+  --muted-foreground: 345 9% 42%;
+  --accent: 14 31% 66%;
+  --accent-foreground: 348 18% 22%;
+  --destructive: 357 36% 47%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 10 22% 88%;
+  --input: 10 19% 81%;
+  --ring: 350 24% 49%;
+}
+
+/*
+ * Tailwind utility mapping. Suffixes intentionally drop the category
+ * prefix already implied by the bg-/text-/border- utility (e.g.
+ * --bg-base -> bg-page, not bg-bg-base). "primary" is reserved for the
+ * brand accent (--accent-primary) so it stays consistent with shadcn/ui
+ * conventions once components are added; the near-black text role is
+ * exposed as "ink" instead of "primary" to avoid that collision.
+ * "page" is used instead of "base" because Tailwind's default type scale
+ * already owns the "base" name (text-base = font-size, not color).
+ */
+@theme inline {
+  --color-page: var(--bg-base);
+  --color-soft: var(--bg-soft);
+  --color-surface: var(--bg-surface);
+  --color-surface-soft: var(--bg-surface-soft);
+
+  --color-ink: var(--text-primary);
+  --color-ink-muted: var(--text-muted);
+  --color-rose-deep: var(--text-rose-deep);
+
+  --color-primary: var(--accent-primary);
+  --color-primary-hover: var(--accent-primary-hover);
+  --color-accent: var(--accent-soft);
+  --color-champagne: var(--accent-champagne);
+  --color-rose-gold: var(--accent-rose-gold);
+
+  --color-border: var(--border-default);
+  --color-border-input: var(--border-input);
+
+  --color-error: var(--state-error);
+  --color-success: var(--state-success);
+  --color-warning: var(--state-warning);
+  --color-info: var(--state-info);
+
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-playfair);
+
+  --radius-sm: calc(var(--radius) - 0.4rem);
+  --radius-md: calc(var(--radius) - 0.2rem);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 0.3rem);
+  --radius-2xl: calc(var(--radius) + 0.6rem);
+  --radius-3xl: calc(var(--radius) + 1rem);
+}
+
+body {
+  background: var(--bg-base);
+  color: var(--text-primary);
+}
