@@ -4,6 +4,7 @@ import type { PublicProductListItem } from "@/types/public-product";
 type ProductGridProps = {
   products: PublicProductListItem[];
   variant?: "default" | "horizontal";
+  layout?: "catalog" | "homepage";
 };
 
 // Caps columns/width to the actual item count so a sparse catalog (e.g. one
@@ -15,10 +16,10 @@ const DEFAULT_GRID_CLASS_BY_COUNT: Record<number, string> = {
   3: "mx-auto max-w-218 grid-cols-2 sm:grid-cols-3",
 };
 
-export function ProductGrid({ products, variant = "default" }: ProductGridProps) {
+export function ProductGrid({ products, variant = "default", layout = "catalog" }: ProductGridProps) {
   if (variant === "horizontal") {
     return (
-      <div className="grid max-w-215 gap-4 md:grid-cols-2">
+      <div className="grid max-w-5xl gap-5 md:grid-cols-2">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} variant={variant} />
         ))}
@@ -26,11 +27,15 @@ export function ProductGrid({ products, variant = "default" }: ProductGridProps)
     );
   }
 
-  const columnsClass =
-    DEFAULT_GRID_CLASS_BY_COUNT[products.length] ?? "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4";
+  const columnsClass = layout === "homepage" && products.length === 4
+    ? "grid-cols-2 lg:grid-cols-4"
+    : DEFAULT_GRID_CLASS_BY_COUNT[products.length] ??
+      (layout === "homepage"
+        ? "grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6"
+        : "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4");
 
   return (
-    <div className={`grid gap-3 lg:gap-2 ${columnsClass}`}>
+    <div className={`grid items-stretch gap-4 sm:gap-5 ${layout === "homepage" ? "xl:gap-5" : "lg:gap-6"} ${columnsClass}`}>
       {products.map((product) => (
         <ProductCard key={product.id} product={product} variant={variant} />
       ))}

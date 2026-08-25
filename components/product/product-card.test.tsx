@@ -30,6 +30,10 @@ describe("ProductCard", () => {
     expect(html).toContain("View product");
     expect(html).toContain("Buy Now");
     expect(html).toContain("/product/pearl-trim-abaya");
+    expect(html).toContain('title="Save look"');
+    expect(html).toContain('aria-pressed="false"');
+    expect(html).toContain('aria-label="Available colors"');
+    expect(html).toContain('title="Black"');
   });
 
   it("shows a strikethrough regular price and the discount price when a discount is active", () => {

@@ -27,6 +27,17 @@ export type PublicProductImage = {
   url: string;
 };
 
+/**
+ * A category plus a representative image for homepage/category tiles.
+ * public_categories has no image column of its own, so the image (when
+ * present) is the first published product's image in that category — never
+ * a fake/placeholder URL. `image` is null when the category has no product
+ * image to show; the UI renders an elegant placeholder in that case.
+ */
+export type PublicCategoryShowcase = PublicCategory & {
+  image: PublicProductImage | null;
+};
+
 export type PublicProductVariant = {
   id: string;
   color: string;

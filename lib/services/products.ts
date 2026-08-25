@@ -13,6 +13,7 @@ import { cache } from "react";
 import { createClient } from "@/lib/supabase/server";
 import type {
   PublicCategory,
+  PublicCategoryShowcase,
   PublicProductDetail,
   PublicProductImage,
   PublicProductListItem,
@@ -340,6 +341,64 @@ export async function getPublishedCategories(): Promise<PublicCategory[]> {
   }
 
   return (data ?? []) as PublicCategoriesViewRow[];
+}
+
+/**
+ * Same published categories as getPublishedCategories(), each paired with a
+ * representative image for "Shop by Category" tiles — the first published
+ * product's image in that category (by sort_order), or null if the category
+ * has no product image yet. Never fabricates an image URL.
+ */
+export async function getPublishedCategoriesWithImages(): Promise<PublicCategoryShowcase[]> {
+  const categories = await getPublishedCategories();
+  if (categories.length === 0) {
+    return [];
+  }
+
+  let supabase;
+  try {
+    supabase = await createClient();
+  } catch {
+    return categories.map((category) => ({ ...category, image: null }));
+  }
+
+  const { data: productRows, error: productsError } = await supabase
+    .from("public_products")
+    .select("id, category_id, sort_order")
+    .in(
+      "category_id",
+      categories.map((c) => c.id),
+    )
+    .order("sort_order", { ascending: true });
+
+  if (productsError || !productRows) {
+    return categories.map((category) => ({ ...category, image: null }));
+  }
+
+  const firstProductIdByCategory = new Map<string, string>();
+  for (const row of productRows as { id: string; category_id: string | null; sort_order: number }[]) {
+    if (row.category_id && !firstProductIdByCategory.has(row.category_id)) {
+      firstProductIdByCategory.set(row.category_id, row.id);
+    }
+  }
+
+  const productIds = Array.from(firstProductIdByCategory.values());
+  const { data: imageRows } = productIds.length
+    ? await supabase.from("public_product_images").select(IMAGES_SELECT).in("product_id", productIds)
+    : { data: [] as PublicProductImagesViewRow[] };
+
+  const imageByProduct = new Map(
+    ((imageRows ?? []) as PublicProductImagesViewRow[]).map((img) => [img.product_id, img]),
+  );
+
+  return categories.map((category) => {
+    const productId = firstProductIdByCategory.get(category.id);
+    const image = productId ? imageByProduct.get(productId) ?? null : null;
+    return {
+      ...category,
+      image: image ? ({ id: image.id, url: image.url } satisfies PublicProductImage) : null,
+    };
+  });
 }
 
 export async function getPublishedProducts(

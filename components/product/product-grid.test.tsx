@@ -44,6 +44,14 @@ describe("ProductGrid", () => {
     expect(html).toContain("lg:grid-cols-4");
   });
 
+  it("uses a roomy four-column desktop layout for four homepage products", () => {
+    const products = ["1", "2", "3", "4"].map(makeProduct);
+    const html = renderToStaticMarkup(<ProductGrid products={products} layout="homepage" />);
+    expect(html).toContain("grid-cols-2");
+    expect(html).toContain("lg:grid-cols-4");
+    expect(html).not.toContain("xl:grid-cols-6");
+  });
+
   it("renders every real product passed in, and nothing else", () => {
     const products = [makeProduct("1"), makeProduct("2")];
     const html = renderToStaticMarkup(<ProductGrid products={products} />);

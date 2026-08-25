@@ -24,6 +24,21 @@ describe("ContactPage", () => {
     expect(html).toContain("wa.me/97312345678");
   });
 
+  it("shows what we can help with and a how-to-order mini section", async () => {
+    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER = "97312345678";
+    vi.resetModules();
+    const { default: ContactPage } = await import("./page");
+
+    const html = renderToStaticMarkup(<ContactPage />);
+
+    expect(html).toContain("What we can help with");
+    expect(html).toContain("Sizing");
+    expect(html).toContain("Availability");
+    expect(html).toContain("Delivery");
+    expect(html).toContain("Order confirmation");
+    expect(html).toContain("How to order");
+  });
+
   it("shows a friendly fallback, never a fake number, when WhatsApp is not configured", async () => {
     delete process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
     vi.resetModules();

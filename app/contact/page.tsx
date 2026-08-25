@@ -11,6 +11,15 @@ export const metadata: Metadata = {
 const WHATSAPP_CONFIGURED = Boolean(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER);
 const INSTAGRAM_URL = process.env.NEXT_PUBLIC_INSTAGRAM_URL;
 
+const HELP_TOPICS = ["Sizing", "Availability", "Delivery", "Order confirmation"];
+
+const HOW_TO_ORDER_STEPS = [
+  { step: "1", title: "Browse", body: "Explore the collection online." },
+  { step: "2", title: "Choose", body: "Pick your size, color, and quantity." },
+  { step: "3", title: "Message us", body: "Send your request on WhatsApp." },
+  { step: "4", title: "Confirm", body: "We confirm availability and payment." },
+];
+
 export default function ContactPage() {
   return (
     <main className="flex-1">
@@ -46,6 +55,20 @@ export default function ContactPage() {
           <p className="mt-1 font-display text-2xl text-rose-deep">Bahrain</p>
           <p className="mx-auto mt-5 max-w-md text-base leading-7 text-ink-muted">Send us your selected product through WhatsApp and our team will confirm availability and payment.</p>
 
+          <div className="mx-auto mt-6 max-w-md">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">What we can help with</p>
+            <ul className="mt-3 flex flex-wrap justify-center gap-2">
+              {HELP_TOPICS.map((topic) => (
+                <li
+                  key={topic}
+                  className="rounded-full border border-border-input bg-surface-soft px-3.5 py-1.5 text-xs font-medium text-ink"
+                >
+                  {topic}
+                </li>
+              ))}
+            </ul>
+          </div>
+
           <div className="mx-auto mt-7 flex max-w-sm flex-col items-stretch gap-3">
             {WHATSAPP_CONFIGURED ? (
               <WhatsAppCta label="Chat on WhatsApp" message="Hi Moosiva, I'd like some help with an order." showIcon className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-sm transition-[background-color,transform,box-shadow] hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary" />
@@ -59,6 +82,24 @@ export default function ContactPage() {
                 Follow us on Instagram
               </a>
             ) : null}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-border bg-surface-soft">
+        <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6 lg:px-8">
+          <h2 className="text-center font-display text-xl text-rose-deep">How to order</h2>
+          <div className="relative mt-5 grid gap-6 sm:grid-cols-4 sm:gap-4">
+            <div className="absolute left-[12.5%] right-[12.5%] top-4 hidden border-t border-dotted border-primary/35 sm:block" aria-hidden="true" />
+            {HOW_TO_ORDER_STEPS.map((item) => (
+              <div key={item.step} className="relative z-10 text-center">
+                <div className="mx-auto flex h-8 w-8 items-center justify-center rounded-full bg-primary text-xs font-semibold text-white shadow-[0_0_0_5px_var(--bg-surface-soft)]">
+                  {item.step}
+                </div>
+                <p className="mt-2 text-xs font-semibold text-ink">{item.title}</p>
+                <p className="mx-auto mt-1 max-w-36 text-[11px] leading-4 text-ink-muted">{item.body}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -4,7 +4,22 @@ import Link from "next/link";
 import { ProductEmptyState } from "@/components/product/product-empty-state";
 import { ProductFilters } from "@/components/product/product-filters";
 import { ProductGrid } from "@/components/product/product-grid";
+import type { PublicProductSort } from "@/lib/services/products";
 import { getPublishedCategories, getPublishedProducts } from "@/lib/services/products";
+
+const VALID_SORTS: PublicProductSort[] = [
+  "default",
+  "featured",
+  "new_arrival",
+  "name_asc",
+  "name_desc",
+  "price_asc",
+  "price_desc",
+];
+
+function parseSort(value: string | undefined): PublicProductSort | undefined {
+  return VALID_SORTS.find((sort) => sort === value);
+}
 
 export const metadata: Metadata = {
   title: "Shop Moosiva",
@@ -25,6 +40,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
   const search = getParam(params, "q") ?? "";
   const categorySlug = getParam(params, "category") ?? "";
   const page = Number(getParam(params, "page") ?? 1);
+  const sort = parseSort(getParam(params, "sort"));
 
   const [categories, result] = await Promise.all([
     getPublishedCategories(),
@@ -32,6 +48,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
       page,
       search: search || undefined,
       categorySlug: categorySlug || undefined,
+      sort,
     }),
   ]);
 
@@ -39,6 +56,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
     const next = new URLSearchParams();
     if (search) next.set("q", search);
     if (categorySlug) next.set("category", categorySlug);
+    if (sort) next.set("sort", sort);
     next.set("page", String(nextPage));
     return `/shop?${next.toString()}`;
   };
@@ -47,15 +65,16 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
     <main>
       <section className="relative overflow-hidden border-b border-border bg-[radial-gradient(circle_at_50%_20%,var(--bg-surface)_0%,var(--bg-soft)_90%)]">
         <svg className="pointer-events-none absolute -bottom-10 right-0 h-40 w-52 text-primary opacity-[0.09]" viewBox="0 0 210 150" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden="true"><path d="M210 130C168 94 134 72 75 48" /><path d="M143 83c3-32 18-49 38-57 2 27-10 48-38 57ZM119 69c-17-24-38-31-59-27 12 22 32 32 59 27ZM173 105c5-25 18-38 35-44 0 22-10 37-35 44Z" /><path d="M115 54c8-25 26-39 49-41-4 24-20 39-49 41Z" /></svg>
-        <div className="relative mx-auto max-w-5xl px-4 py-8 text-center sm:px-6 lg:px-8">
-          <h1 className="font-display text-4xl text-rose-deep">Shop Moosiva</h1>
-          <p className="mt-2 text-sm text-ink-muted">
+        <div className="relative mx-auto max-w-7xl px-4 py-12 text-center sm:px-6 lg:px-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary">The Collection</p>
+          <h1 className="mt-2 font-display text-4xl text-rose-deep sm:text-5xl">Shop Moosiva</h1>
+          <p className="mx-auto mt-3 max-w-md text-sm text-ink-muted">
             Browse the latest available pieces from Moosiva Lux Wear.
           </p>
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl space-y-5 px-4 py-5 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl space-y-8 px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
         <ProductFilters
           categories={categories}
           selectedCategorySlug={categorySlug || undefined}

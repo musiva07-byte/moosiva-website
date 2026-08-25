@@ -83,6 +83,8 @@ Use Tailwind CSS. Use shadcn/ui components where useful for forms, buttons, dial
 ## Layout Patterns
 
 - Mobile-first design.
+- Use a dark, high-contrast fashion header with Moosiva branding, centered commerce navigation, and a real WhatsApp CTA; do not add decorative cart/account controls.
+- Homepage campaign sections should favor image-led commercial density: split editorial hero, a six-up category row, four larger New Arrivals cards, a compact five-service band, a strong horizontal promo, and a real-product lookbook strip.
 - Product cards should be image-led with simple price and CTA.
 - Product details should show image first, options and CTA clearly.
 - Checkout should be a calm step or single-page form with clear sections.

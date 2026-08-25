@@ -60,34 +60,34 @@ export default function AboutPage() {
       <section className="relative overflow-hidden border-b border-border bg-[radial-gradient(circle_at_50%_20%,var(--bg-surface)_0%,var(--bg-soft)_100%)]">
         <div className="pointer-events-none absolute -left-16 -top-20 h-52 w-72 rotate-[-18deg] rounded-[50%] bg-surface/70 shadow-[0_20px_50px_rgba(199,154,135,0.15)]" aria-hidden="true" />
         <svg className="pointer-events-none absolute bottom-0 right-0 h-44 w-48 text-primary opacity-[0.13]" viewBox="0 0 190 170" fill="none" stroke="currentColor" strokeWidth="1" aria-hidden="true"><path d="M188 168C154 115 130 75 76 20" /><path d="M133 81c3-26 14-41 31-49 2 23-8 40-31 49ZM112 58C96 37 78 31 60 35c11 19 28 27 52 23ZM155 116c4-22 15-34 30-40 1 19-8 33-30 40Z" /><circle cx="90" cy="35" r="2" fill="currentColor" /><circle cx="164" cy="30" r="2" fill="currentColor" /></svg>
-        <div className="relative mx-auto max-w-4xl px-4 py-10 text-center sm:px-6 lg:px-8">
-          <p className="text-xs font-medium uppercase tracking-[0.28em] text-primary">
+        <div className="relative mx-auto max-w-4xl px-4 py-14 text-center sm:px-6 lg:px-8">
+          <p className="text-xs font-medium uppercase tracking-[0.3em] text-primary">
             Moosiva Lux Wear
           </p>
-          <h1 className="mt-3 font-display text-4xl text-rose-deep sm:text-5xl">About Moosiva</h1>
-          <div className="mx-auto mt-2 h-px w-16 bg-primary/45" />
-          <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-ink-muted">
+          <h1 className="mt-3 font-display text-5xl text-rose-deep sm:text-6xl">About Moosiva</h1>
+          <div className="mx-auto mt-3 h-px w-16 bg-primary/45" />
+          <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-ink-muted">
             A curated ladies&apos; fashion boutique for Bahrain, bringing elegant pieces for
             everyday wear, occasions, and modest styling — straight to your WhatsApp.
           </p>
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-4 py-7 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-8 md:grid-cols-[245px_1fr]">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-b-xl rounded-t-[4rem] shadow-[0_12px_28px_rgba(90,53,59,0.1)]">
-            <Image src="/moosiva-about-boutique.png" alt="Curated modest dresses displayed in the Moosiva boutique style" fill sizes="245px" className="object-cover" />
+      <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
+        <div className="grid items-center gap-10 md:grid-cols-[1fr_1fr] lg:gap-16">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-b-2xl rounded-t-[5rem] shadow-[0_18px_40px_rgba(90,53,59,0.14)]">
+            <Image src="/moosiva-about-boutique.png" alt="Curated modest dresses displayed in the Moosiva boutique style" fill sizes="(min-width: 768px) 45vw, 100vw" className="object-cover" />
           </div>
           <div>
-        <h2 className="font-display text-3xl text-rose-deep">Our story</h2>
-        <div className="mt-2 h-0.5 w-14 bg-primary" />
-        <p className="mt-4 text-sm leading-6 text-ink-muted">
+        <h2 className="font-display text-4xl text-rose-deep">Our story</h2>
+        <div className="mt-3 h-0.5 w-14 bg-primary" />
+        <p className="mt-5 text-base leading-7 text-ink-muted">
           Moosiva Lux Wear was created for women in Bahrain who want elegant, comfortable pieces
           without the hassle of crowded stores. We curate a small, considered collection —
           dresses, abayas, tops, and more — spanning everyday wear, special occasions, and modest
           styling.
         </p>
-        <p className="mt-4 text-sm leading-6 text-ink-muted">
+        <p className="mt-4 text-base leading-7 text-ink-muted">
           Rather than a large impersonal storefront, Moosiva keeps ordering simple and personal:
           browse the collection online, then request your favorite pieces directly through
           WhatsApp, where our team helps confirm availability, sizing, and payment.
@@ -97,7 +97,7 @@ export default function AboutPage() {
       </section>
 
       <section className="border-y border-border bg-surface-soft">
-        <div className="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
           <h2 className="text-center font-display text-2xl text-rose-deep">What we offer</h2>
           <div className="mx-auto mt-1 flex w-14 items-center gap-1 text-primary/50" aria-hidden="true"><span className="h-px flex-1 bg-current" /><span className="h-1.5 w-1.5 rotate-45 bg-current" /><span className="h-px flex-1 bg-current" /></div>
           <div className="mt-5 grid gap-5 sm:grid-cols-3">

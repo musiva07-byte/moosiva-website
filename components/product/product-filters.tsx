@@ -13,7 +13,7 @@ type ProductFiltersProps = {
 export function ProductFilters({ categories, selectedCategorySlug, searchValue }: ProductFiltersProps) {
   return (
     <form
-      className="grid gap-3 sm:grid-cols-[1fr_180px_auto]"
+      className="grid gap-3 rounded-2xl border border-border bg-surface-soft p-3 shadow-[0_8px_24px_rgba(90,53,59,0.05)] sm:grid-cols-[1fr_210px_auto] sm:p-4"
       method="GET"
       action="/shop"
     >
@@ -24,14 +24,14 @@ export function ProductFilters({ categories, selectedCategorySlug, searchValue }
           name="q"
           placeholder="Search products"
           defaultValue={searchValue}
-          className="h-10 w-full rounded-full border border-border bg-surface px-4 pl-11 text-xs text-ink shadow-sm placeholder:text-ink-muted focus:border-primary focus:outline-none"
+          className="h-12 w-full rounded-xl border border-border bg-surface px-4 pl-11 text-sm text-ink shadow-sm placeholder:text-ink-muted focus:border-primary focus:outline-none"
         />
       </div>
       {categories.length > 0 ? (
         <select
           name="category"
           defaultValue={selectedCategorySlug ?? ""}
-          className="h-10 rounded-full border border-border bg-surface px-4 text-xs text-ink shadow-sm focus:border-primary focus:outline-none"
+          className="h-12 rounded-xl border border-border bg-surface px-4 text-sm text-ink shadow-sm focus:border-primary focus:outline-none"
         >
           <option value="">All categories</option>
           {categories.map((category) => (
@@ -43,7 +43,7 @@ export function ProductFilters({ categories, selectedCategorySlug, searchValue }
       ) : null}
       <button
         type="submit"
-        className="inline-flex h-10 items-center justify-center gap-2 rounded-full bg-primary px-6 text-xs font-medium text-white shadow-[0_8px_18px_rgba(155,95,104,0.18)] transition-colors hover:bg-primary-hover"
+        className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-primary px-7 text-sm font-semibold text-white shadow-[0_8px_18px_rgba(155,95,104,0.18)] transition-colors hover:bg-primary-hover"
       >
         <svg viewBox="0 0 20 20" aria-hidden="true" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M3 5h14M6 10h8M8 15h4M7 3v4M13 8v4M10 13v4" /></svg>
         Filter

@@ -41,6 +41,7 @@ import {
   buildProductDetail,
   buildProductListItem,
   getPublishedCategories,
+  getPublishedCategoriesWithImages,
   getPublishedProductBySlug,
   getPublishedProducts,
   normalizePage,
@@ -267,6 +268,61 @@ describe("public product service queries only public_* views", () => {
   it("getPublishedCategories queries only public_categories", async () => {
     await getPublishedCategories();
     expect(fromCalls).toEqual(["public_categories"]);
+  });
+
+  it("getPublishedCategoriesWithImages never queries a raw table and returns [] with no categories", async () => {
+    tableResults.public_categories = { data: [], error: null };
+    const result = await getPublishedCategoriesWithImages();
+    expect(result).toEqual([]);
+    for (const table of fromCalls) {
+      expect(table.startsWith("public_")).toBe(true);
+    }
+  });
+
+  it("getPublishedCategoriesWithImages pairs each category with its first published product's image", async () => {
+    tableResults.public_categories = {
+      data: [{ id: "cat-1", name: "Abayas", slug: "abayas", description: null, sort_order: 1 }],
+      error: null,
+    };
+    tableResults.public_products = {
+      data: [
+        { id: "p1", category_id: "cat-1", sort_order: 1 },
+        { id: "p2", category_id: "cat-1", sort_order: 2 },
+      ],
+      error: null,
+    };
+    tableResults.public_product_images = {
+      data: [{ id: "img-1", product_id: "p1", url: "https://cdn.example.com/p1.jpg" }],
+      error: null,
+    };
+
+    const result = await getPublishedCategoriesWithImages();
+    expect(result).toEqual([
+      {
+        id: "cat-1",
+        name: "Abayas",
+        slug: "abayas",
+        description: null,
+        sort_order: 1,
+        image: { id: "img-1", url: "https://cdn.example.com/p1.jpg" },
+      },
+    ]);
+    for (const table of fromCalls) {
+      expect(table.startsWith("public_")).toBe(true);
+    }
+  });
+
+  it("getPublishedCategoriesWithImages returns a null image when the category has no product image yet", async () => {
+    tableResults.public_categories = {
+      data: [{ id: "cat-1", name: "Abayas", slug: "abayas", description: null, sort_order: 1 }],
+      error: null,
+    };
+    tableResults.public_products = { data: [], error: null };
+
+    const result = await getPublishedCategoriesWithImages();
+    expect(result).toEqual([
+      { id: "cat-1", name: "Abayas", slug: "abayas", description: null, sort_order: 1, image: null },
+    ]);
   });
 
   it("getPublishedProducts never queries a raw table", async () => {

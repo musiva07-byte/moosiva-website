@@ -76,4 +76,17 @@ describe("ShopPage", () => {
       expect(html).not.toContain(forbidden);
     }
   });
+
+  it("preserves the new-arrival sort query and product detail links", async () => {
+    mockGetPublishedProducts.mockResolvedValue({ items: [product], total: 1, page: 1, pageSize: 12, pageCount: 1 });
+    mockGetPublishedCategories.mockResolvedValue([]);
+
+    const element = await ShopPage({ searchParams: Promise.resolve({ sort: "new_arrival" }) });
+    const html = renderToStaticMarkup(element);
+
+    expect(mockGetPublishedProducts).toHaveBeenCalledWith(
+      expect.objectContaining({ sort: "new_arrival" }),
+    );
+    expect(html).toContain('href="/product/a-line-top"');
+  });
 });
