@@ -13,7 +13,7 @@ export function SiteFooter() {
         <div>
           <div className="flex items-center gap-3">
             <Image src="/moosiva-logo-mark.png" alt="" width={1032} height={634} className="h-14 w-auto object-contain brightness-0 invert" />
-            <p className="font-display text-2xl leading-tight text-white">Moosiva Lux Wear</p>
+            <p className="border-b border-rose-gold/80 pb-2 font-display text-2xl leading-tight text-page">Moosiva Lux Wear</p>
           </div>
           <p className="mt-4 max-w-xs text-sm leading-6 text-white/70">Elegant ladies&apos; wear curated for Bahrain.</p>
           <div className="mt-6 flex flex-wrap items-center gap-3">

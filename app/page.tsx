@@ -77,7 +77,7 @@ function CategoryTile({ category, className = "" }: { category: PublicCategorySh
         </span>
       </div>
       <div className="px-3 py-3 text-center">
-        <p className="text-xs font-extrabold uppercase tracking-[0.1em] text-ink">{category.name}</p>
+        <p className="font-display text-xl font-medium leading-tight text-rose-deep">{category.name}</p>
         <span className="mt-1.5 inline-flex items-center gap-1 text-[10px] font-semibold text-primary transition-transform group-hover:translate-x-1">
           Explore now <span aria-hidden="true">-&gt;</span>
         </span>
@@ -102,8 +102,8 @@ export default async function HomePage() {
   return (
     <main className="flex-1">
       <section className="relative overflow-hidden border-b border-border bg-surface" aria-labelledby="hero-heading">
-        <div className="grid w-full grid-cols-1 lg:h-[40rem] lg:grid-cols-[42%_58%]">
-          <div className="relative flex min-w-0 items-center bg-[linear-gradient(135deg,var(--bg-soft)_0%,var(--bg-surface-soft)_58%,var(--accent-soft)_135%)] px-6 py-12 sm:px-12 sm:py-16 lg:py-14 lg:pl-[clamp(3.5rem,7vw,7rem)] lg:pr-7">
+        <div className="grid w-full grid-cols-1 lg:min-h-[40rem] lg:grid-cols-[42%_58%]">
+          <div className="relative flex min-w-0 items-center border-y-[5px] border-double border-champagne/70 bg-[linear-gradient(135deg,var(--bg-base)_0%,var(--bg-surface-soft)_58%,var(--bg-soft)_100%)] px-6 py-12 sm:px-12 sm:py-16 lg:py-14 lg:pl-[clamp(3.5rem,7vw,7rem)] lg:pr-7">
             <svg className="pointer-events-none absolute -left-8 -top-2 h-64 w-44 text-primary opacity-[0.07]" viewBox="0 0 130 190" fill="none" aria-hidden="true">
               <path d="M20-8c19 35 30 78 29 132" stroke="currentColor" strokeWidth="2" />
               {[[35, 23, -20], [48, 40, 18], [42, 59, -25], [52, 78, 20], [45, 99, -19]].map(([x, y, r]) => (
@@ -113,18 +113,15 @@ export default async function HomePage() {
             <div className="relative z-10 mx-auto min-w-0 w-full max-w-[540px] lg:mx-0">
               <div className="flex items-center gap-4">
                 <span className="h-px w-10 bg-primary" aria-hidden="true" />
-                <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-primary sm:text-xs">New Season Collection</p>
+                <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary sm:text-xs">ETHNIC • MODEST • OCCASION WEAR</p>
               </div>
-              <h1 id="hero-heading" className="mt-5 max-w-[540px] font-display text-[3.35rem] leading-[0.92] tracking-[-0.045em] text-rose-deep sm:text-[4.5rem] lg:text-[4.75rem]">
-                <span className="block">Where elegance</span>
-                <span className="block">meets modern</span>
-                <span className="mt-2 block italic text-primary">Fashion</span>
+              <h1 id="hero-heading" className="mt-5 max-w-[540px] text-balance font-display text-[clamp(2.75rem,8vw,4.5rem)] leading-[0.98] tracking-[-0.025em] text-rose-deep lg:text-[clamp(3.25rem,4.7vw,4.75rem)]">
+                Ethnic elegance, curated for Bahrain
               </h1>
               <p className="mt-7 max-w-[470px] border-l border-champagne pl-5 text-[1rem] leading-7 text-ink-muted sm:text-[1.05rem]">
-                Curated ladies&apos; wear for Bahrain — elegant pieces for everyday style,
-                occasions, and modest dressing.
+                Discover elegant ethnic, modest, and occasion wear selected for women in Bahrain.
               </p>
-              <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
                 <Link href="/shop?sort=new_arrival" className="inline-flex min-h-12 items-center justify-center gap-4 rounded-lg bg-rose-deep px-7 text-sm font-semibold text-white shadow-[0_10px_25px_rgba(90,53,59,0.22)] transition-[background-color,box-shadow,transform] hover:-translate-y-0.5 hover:bg-ink hover:shadow-[0_14px_30px_rgba(46,35,37,0.25)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-deep">
                   Shop New Arrivals
                   <svg viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true"><path d="M3 10h13m-5-5 5 5-5 5" /></svg>
@@ -134,23 +131,16 @@ export default async function HomePage() {
                 </Link>
               </div>
               <div className="mt-10 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-ink-muted" aria-hidden="true">
-                <span>01</span>
-                <span className="h-px w-14 bg-primary" />
-                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                <span className="h-px flex-1 bg-champagne" />
+                <span className="h-1.5 w-1.5 shrink-0 rotate-45 bg-rose-gold" />
+                <span className="h-px flex-1 bg-champagne" />
               </div>
             </div>
           </div>
-          <div className="relative aspect-[4/5] min-h-[26rem] min-w-0 overflow-hidden bg-soft sm:aspect-[16/11] lg:aspect-auto lg:min-h-full">
-            <Image src="/moosiva-hero-portrait.png" alt="Woman wearing a dusty mauve embroidered abaya in a warm boutique" fill priority sizes="(min-width: 1024px) 55vw, 100vw" className="object-cover object-center lg:hidden" />
-            <Image src="/moosiva-hero-editorial.png" alt="Woman in blush modest fashion in a warm, softly lit boutique interior" fill priority sizes="(min-width: 1024px) 58vw, 100vw" className="hidden scale-[1.035] object-cover object-[95%_center] lg:block" />
+          <div className="relative aspect-[4/5] w-full min-w-0 overflow-hidden bg-soft sm:aspect-[16/11] lg:aspect-auto lg:min-h-full">
+            <Image src="/moosiva-hero-ethnic-editorial.png" alt="Woman in ivory embroidered occasion wear with a fine gold-bordered drape in a warm, naturally lit interior" fill priority sizes="(min-width: 1024px) 58vw, 100vw" className="object-cover object-[65%_center]" />
             <div className="pointer-events-none absolute inset-0 hidden bg-[linear-gradient(90deg,var(--bg-soft)_0%,transparent_18%)] opacity-80 lg:block" aria-hidden="true" />
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-rose-deep/20 to-transparent" aria-hidden="true" />
-            <div className="absolute bottom-7 right-7 hidden border border-white/55 bg-surface/85 px-5 py-3 text-right shadow-lg backdrop-blur-sm sm:block">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.26em] text-primary">Moosiva Edit</p>
-              <p className="mt-1 font-display text-lg text-rose-deep">Curated in Bahrain</p>
-            </div>
           </div>
         </div>
       </section>
@@ -160,7 +150,7 @@ export default async function HomePage() {
         <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.28em] text-primary">Discover the collection</p>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Ethnic elegance for every occasion</p>
               <h2 className="mt-1 font-display text-3xl leading-none text-rose-deep sm:text-4xl">Shop by Category</h2>
             </div>
             {homepageCategories.length > 0 ? (

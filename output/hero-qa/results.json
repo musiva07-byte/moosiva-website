@@ -1,0 +1,82 @@
+[
+  {
+    "width": 320,
+    "client": 320,
+    "scroll": 320,
+    "imageBounds": {
+      "left": 0,
+      "right": 320
+    },
+    "imageLoaded": true,
+    "headline": "Ethnic elegance, curated for Bahrain",
+    "forbidden": false,
+    "privateLabels": false,
+    "fontLoaded": true,
+    "heroBottom": 1115.328125,
+    "menuVisible": true
+  },
+  {
+    "width": 390,
+    "client": 390,
+    "scroll": 390,
+    "imageBounds": {
+      "left": 0,
+      "right": 390
+    },
+    "imageLoaded": true,
+    "headline": "Ethnic elegance, curated for Bahrain",
+    "forbidden": false,
+    "privateLabels": false,
+    "fontLoaded": true,
+    "heroBottom": 1144.71875,
+    "menuVisible": true
+  },
+  {
+    "width": 768,
+    "client": 753,
+    "scroll": 753,
+    "imageBounds": {
+      "left": 0,
+      "right": 753
+    },
+    "imageLoaded": true,
+    "headline": "Ethnic elegance, curated for Bahrain",
+    "forbidden": false,
+    "privateLabels": false,
+    "fontLoaded": true,
+    "heroBottom": 1140.59375,
+    "menuVisible": true
+  },
+  {
+    "width": 1024,
+    "client": 1009,
+    "scroll": 1009,
+    "imageBounds": {
+      "left": 423.765625,
+      "right": 1008.984375
+    },
+    "imageLoaded": true,
+    "headline": "Ethnic elegance, curated for Bahrain",
+    "forbidden": false,
+    "privateLabels": false,
+    "fontLoaded": true,
+    "heroBottom": 754.5,
+    "menuVisible": false
+  },
+  {
+    "width": 1440,
+    "client": 1425,
+    "scroll": 1425,
+    "imageBounds": {
+      "left": 598.5,
+      "right": 1425
+    },
+    "imageLoaded": true,
+    "headline": "Ethnic elegance, curated for Bahrain",
+    "forbidden": false,
+    "privateLabels": false,
+    "fontLoaded": true,
+    "heroBottom": 754.5,
+    "menuVisible": false
+  }
+]

@@ -5,10 +5,10 @@
  * Variable names match context/ui-context.md exactly.
  */
 :root {
-  --bg-base: #fbf7f5;
+  --bg-base: #fcf8f0;
   --bg-soft: #f3e7e5;
   --bg-surface: #ffffff;
-  --bg-surface-soft: #f8f1ef;
+  --bg-surface-soft: #f8f2e9;
 
   --text-primary: #2e2325;
   --text-muted: #746267;
@@ -86,7 +86,7 @@
   --color-info: var(--state-info);
 
   --font-sans: var(--font-inter);
-  --font-display: var(--font-playfair);
+  --font-display: var(--font-cormorant);
 
   --radius-sm: calc(var(--radius) - 0.4rem);
   --radius-md: calc(var(--radius) - 0.2rem);
@@ -94,10 +94,25 @@
   --radius-xl: calc(var(--radius) + 0.3rem);
   --radius-2xl: calc(var(--radius) + 0.6rem);
   --radius-3xl: calc(var(--radius) + 1rem);
+
+  /* Premium slow marquee for the announcement bar — see components/layout/announcement-bar.tsx.
+     Duration is deliberately long (not fast) per the brand's "premium, not cheap" direction. */
+  --animate-marquee: marquee 38s linear infinite;
 }
 
 body {
   background: var(--bg-base);
   color: var(--text-primary);
   overflow-x: clip;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* Exactly -50%: the track renders two identical copies of the content back
+       to back, so translating by half its width loops with no jump/glitch. */
+    transform: translateX(-50%);
+  }
 }

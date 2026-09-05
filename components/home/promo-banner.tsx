@@ -19,10 +19,10 @@ export function PromoBanner() {
           <div className="max-w-xl">
             <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-accent">New Season Collection</p>
             <h2 id="promo-banner-heading" className="mt-3 max-w-lg font-display text-4xl leading-[1.02] text-white sm:text-5xl">
-              Fresh styles curated for Bahrain
+              Ethnic elegance for every occasion
             </h2>
             <p className="mt-4 max-w-md text-sm leading-6 text-white/80 sm:text-base">
-              Browse latest arrivals and request your favorite piece on WhatsApp.
+              Explore modest, ethnic, and occasion wear. Request your favorite piece on WhatsApp.
             </p>
             <Link
               href="/shop?sort=new_arrival"

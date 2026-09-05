@@ -34,7 +34,7 @@ export function InstagramSection({ lookbookImages = [] }: InstagramSectionProps)
             #MOOSIVA STYLE
           </h2>
           <p className="max-w-md text-sm leading-6 text-ink-muted">
-            Follow Moosiva for new arrivals, styling ideas, and latest pieces.
+            South Indian-inspired boutique styles, curated for Bahrain. Follow along for new arrivals and styling ideas.
           </p>
         </div>
 

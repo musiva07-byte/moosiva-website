@@ -8,6 +8,8 @@ describe("AboutPage", () => {
     const html = renderToStaticMarkup(<AboutPage />);
 
     expect(html).toContain("About Moosiva");
+    expect(html).not.toMatch(/malayali|mallu/i);
+    expect(html).toContain("ethnic, modest,");
     expect(html).toContain("Curated selection");
     expect(html).toContain("How ordering works");
     expect(html).toContain("wa.me");

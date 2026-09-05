@@ -20,14 +20,14 @@ export function SiteHeader() {
               width={1032}
               height={634}
               priority
-              className="h-11 w-auto object-contain brightness-0 invert"
+              className="h-12 w-auto rounded-md bg-page px-2 py-1 object-contain"
             />
-            <span className="font-display text-2xl tracking-wide text-white sm:text-3xl">
+            <span className="border-b border-rose-gold/80 pb-1 font-display text-2xl tracking-wide text-page sm:text-3xl">
               Moosiva
             </span>
           </Link>
 
-          <nav className="hidden items-center gap-9 md:flex">
+          <nav className="hidden items-center gap-9 lg:flex">
             {MAIN_NAV.map((item) => (
               <NavLink
                 key={item.href}
@@ -40,7 +40,7 @@ export function SiteHeader() {
             ))}
           </nav>
 
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <WhatsAppCta
               label="WhatsApp"
               showIcon

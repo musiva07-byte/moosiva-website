@@ -9,7 +9,7 @@ export const MAIN_NAV = [
 ] as const;
 
 export const ANNOUNCEMENT_TEXT =
-  "New arrivals now available in Bahrain · Order easily through WhatsApp";
+  "New arrivals now available in Bahrain · Order easily through WhatsApp · Ethnic modest occasion wear ·";
 
 export const POLICY_LINKS = [
   { label: "Delivery Policy", href: "/policies/delivery" },

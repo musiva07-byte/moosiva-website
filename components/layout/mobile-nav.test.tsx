@@ -1,7 +1,7 @@
 import { renderToStaticMarkup } from "react-dom/server";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
-import { MobileNav } from "./mobile-nav";
+import { MobileNav, MobileNavPanel } from "./mobile-nav";
 import { MAIN_NAV } from "@/lib/constants/site";
 
 describe("MobileNav", () => {
@@ -15,5 +15,18 @@ describe("MobileNav", () => {
     for (const item of MAIN_NAV) {
       expect(html).not.toContain(item.label);
     }
+  });
+});
+
+describe("MobileNavPanel", () => {
+  it("renders every main nav link with its correct href, plus a WhatsApp CTA, when open", () => {
+    const html = renderToStaticMarkup(<MobileNavPanel onLinkClick={vi.fn()} />);
+
+    for (const item of MAIN_NAV) {
+      expect(html).toContain(item.label);
+      expect(html).toContain(`href="${item.href}"`);
+    }
+    expect(html).toContain("Chat on WhatsApp");
+    expect(html).toContain("wa.me");
   });
 });

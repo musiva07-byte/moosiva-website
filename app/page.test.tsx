@@ -102,11 +102,11 @@ describe("HomePage", () => {
     const html = renderToStaticMarkup(await HomePage());
 
     const order = [
-      "Where elegance",
+      "Ethnic elegance, curated for Bahrain",
       'id="categories"',
       ">New Arrivals<",
       "Finest fabrics",
-      "Fresh styles curated for Bahrain",
+      'id="promo-banner-heading"',
       "#MOOSIVA STYLE",
       "How to Order",
     ];
@@ -127,12 +127,16 @@ describe("HomePage", () => {
     const html = renderToStaticMarkup(await HomePage());
 
     expect(html).toContain("New Season Collection");
-    expect(html).toContain("Where elegance");
-    expect(html).toContain("meets modern");
-    expect(html).toContain("Fashion");
-    expect(html).toContain("Curated ladies");
+    expect(html).toContain("ETHNIC • MODEST • OCCASION WEAR");
+    expect(html).toContain("Ethnic elegance, curated for Bahrain");
+    expect(html).not.toMatch(/malayali|mallu/i);
+    expect(html).not.toMatch(/Where elegance|meets modern|>Fashion</);
+    expect(html).toContain("Discover elegant ethnic, modest, and occasion wear selected for women in Bahrain.");
     expect(html).toContain("Shop New Arrivals");
     expect(html).toContain("Explore Collection");
+    expect(html).toContain("moosiva-hero-ethnic-editorial.png");
+    expect(html).not.toContain("moosiva-hero-portrait.png");
+    expect(html).not.toContain("moosiva-hero-editorial.png");
     expect(html).toContain('href="/shop?sort=new_arrival"');
     expect(html).toContain('href="/shop"');
   });
@@ -173,7 +177,7 @@ describe("HomePage", () => {
     const html = renderToStaticMarkup(await HomePage());
 
     expect(html).toContain("New Season Collection");
-    expect(html).toContain("Fresh styles curated for Bahrain");
+    expect(html).toContain("Ethnic elegance for every occasion");
     expect(html).toContain("/shop?sort=new_arrival");
     expect(html).not.toMatch(/\d+%\s*off/i);
   });
@@ -216,7 +220,7 @@ describe("HomePage", () => {
 
     const { default: HomePage } = await import("./page");
     const html = renderToStaticMarkup(await HomePage()).toLowerCase();
-    for (const forbidden of ["buying cost", "landed cost", "exchange rate", "profit", "margin", "sku", "barcode", "supplier"]) {
+    for (const forbidden of ["buying cost", "landed cost", "exchange rate", "profit", "margin", "sku", "barcode", "supplier", "staff", "cost_price", "landed_cost", "pgrst", "permission denied", "supabase"]) {
       expect(html).not.toContain(forbidden);
     }
   });

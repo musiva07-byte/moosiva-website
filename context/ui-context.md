@@ -4,7 +4,7 @@
 
 Moosiva Lux Wear is a premium ladies' boutique. The public website should feel elegant, feminine, warm, modern, and trustworthy. It should be more customer-facing and visually polished than the internal operations dashboard, but still fast and lightweight.
 
-The visual language is based on the Moosiva logo: muted mauve, dusty rose, blush, warm ivory, champagne, and rose-gold accents.
+The visual language is a modern Kerala / South-Indian-inspired boutique for Bahrain, based on the Moosiva logo: muted mauve, dusty rose, blush, warm ivory, champagne, and rose-gold accents. Cultural direction belongs primarily in campaign imagery, drape, jewelry, texture, and restrained gold borders. Never use "Malayali" or "Mallu" in public copy. Hero copy: "ETHNIC • MODEST • OCCASION WEAR", "Ethnic elegance, curated for Bahrain", and "Discover elegant ethnic, modest, and occasion wear selected for women in Bahrain." Keep all hero copy in HTML, outside the image. A newly generated editorial asset may replace the generic campaign pending a client-approved photograph; document provenance and never describe it as a real catalog item or client-approved photo.
 
 Avoid generic blue ecommerce styling, neon pink, dark technical dashboard styling, heavy gradients, low-contrast decorative text, and cluttered product layouts.
 
@@ -14,10 +14,10 @@ Use CSS custom properties and Tailwind tokens. Do not scatter hardcoded hex colo
 
 | Role | CSS Variable | Value |
 | --- | --- | --- |
-| Page background | `--bg-base` | `#FBF7F5` |
+| Page background | `--bg-base` | `#FCF8F0` |
 | Soft background | `--bg-soft` | `#F3E7E5` |
 | Surface | `--bg-surface` | `#FFFFFF` |
-| Secondary surface | `--bg-surface-soft` | `#F8F1EF` |
+| Secondary surface | `--bg-surface-soft` | `#F8F2E9` |
 | Primary text | `--text-primary` | `#2E2325` |
 | Muted text | `--text-muted` | `#746267` |
 | Deep rose text | `--text-rose-deep` | `#5A353B` |
@@ -62,10 +62,10 @@ Suggested shadcn-style root variables:
 
 | Role | Font | Variable |
 | --- | --- | --- |
-| UI text | Inter or Geist Sans | `--font-sans` |
-| Display headings | Playfair Display, Cormorant Garamond, or similar elegant serif | `--font-display` |
+| UI text | Inter | `--font-sans` |
+| Display headings | Cormorant Garamond, medium weight | `--font-display` |
 
-Use sans-serif for forms, prices, navigation, checkout, and product details. Use elegant serif only for hero headings or brand storytelling. Do not use script fonts for functional content.
+Use Inter for body text, forms, prices, navigation, and checkout. Use Cormorant Garamond consistently for hero/section headings, product names, category names, About/Contact headings, and footer branding. Load only Latin through next/font with display swap; no extra script font. In the dark header, show the original rose-gold logo on a small ivory backing with ivory brand text and rose-gold underline. The dark footer retains the clean white logo filter. On light surfaces use the original rose-gold mark and deep rose brown text. Preserve logo aspect ratio; black is unsuitable directly against the dark header.
 
 ## Border Radius
 

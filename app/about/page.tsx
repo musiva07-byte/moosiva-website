@@ -67,8 +67,8 @@ export default function AboutPage() {
           <h1 className="mt-3 font-display text-5xl text-rose-deep sm:text-6xl">About Moosiva</h1>
           <div className="mx-auto mt-3 h-px w-16 bg-primary/45" />
           <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-ink-muted">
-            A curated ladies&apos; fashion boutique for Bahrain, bringing elegant pieces for
-            everyday wear, occasions, and modest styling — straight to your WhatsApp.
+            A curated ladies&apos; fashion boutique in Bahrain, bringing together ethnic, modest,
+            and occasion wear with graceful South Indian-inspired style.
           </p>
         </div>
       </section>
@@ -82,10 +82,9 @@ export default function AboutPage() {
         <h2 className="font-display text-4xl text-rose-deep">Our story</h2>
         <div className="mt-3 h-0.5 w-14 bg-primary" />
         <p className="mt-5 text-base leading-7 text-ink-muted">
-          Moosiva Lux Wear was created for women in Bahrain who want elegant, comfortable pieces
-          without the hassle of crowded stores. We curate a small, considered collection —
-          dresses, abayas, tops, and more — spanning everyday wear, special occasions, and modest
-          styling.
+          Moosiva Lux Wear brings a considered eye to ladies&apos; fashion in Bahrain.
+          Our curated selection of ethnic, modest, and occasion wear celebrates graceful
+          silhouettes for everyday moments and special gatherings.
         </p>
         <p className="mt-4 text-base leading-7 text-ink-muted">
           Rather than a large impersonal storefront, Moosiva keeps ordering simple and personal:
